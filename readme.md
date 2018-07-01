@@ -7,6 +7,8 @@ Please refer to the following branch:
 
 ## Screenshot
 
+### NetBeans
 ![JAVA1](https://github.com/gurisa/HLLCompiler/blob/master/docs/screenshot/java-1.png?raw=true)
 
+### VS2010
 ![NET1](https://github.com/gurisa/HLLCompiler/blob/master/docs/screenshot/net-1.png?raw=true)
