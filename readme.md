@@ -7,3 +7,6 @@ Please refer to the following branch:
 
 ## Screenshot
 
+![JAVA1](https://github.com/gurisa/HLLCompiler/blob/master/docs/screenshot/java-1.png?raw=true)
+
+![NET1](https://github.com/gurisa/HLLCompiler/blob/master/docs/screenshot/net-1.png?raw=true)
