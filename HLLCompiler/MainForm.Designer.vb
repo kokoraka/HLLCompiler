@@ -23,7 +23,8 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
+        Me.RichTextBoxSource = New System.Windows.Forms.RichTextBox()
         Me.ButtonScanner = New System.Windows.Forms.Button()
         Me.ButtonParser = New System.Windows.Forms.Button()
         Me.ComboBoxLanguage = New System.Windows.Forms.ComboBox()
@@ -41,21 +42,26 @@ Partial Class MainForm
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TimerLoader = New System.Windows.Forms.Timer(Me.components)
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBoxResult = New System.Windows.Forms.RichTextBox()
+        Me.ButtonCopy = New System.Windows.Forms.Button()
+        Me.ComboBoxTestCase = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CheckBoxShowLog = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxStepByStep = New System.Windows.Forms.CheckBox()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
-        'RichTextBox1
+        'RichTextBoxSource
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(12, 111)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(324, 274)
-        Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = ""
+        Me.RichTextBoxSource.Location = New System.Drawing.Point(12, 111)
+        Me.RichTextBoxSource.Name = "RichTextBoxSource"
+        Me.RichTextBoxSource.Size = New System.Drawing.Size(353, 338)
+        Me.RichTextBoxSource.TabIndex = 0
+        Me.RichTextBoxSource.Text = resources.GetString("RichTextBoxSource.Text")
         '
         'ButtonScanner
         '
-        Me.ButtonScanner.Location = New System.Drawing.Point(12, 406)
+        Me.ButtonScanner.Location = New System.Drawing.Point(12, 455)
         Me.ButtonScanner.Name = "ButtonScanner"
         Me.ButtonScanner.Size = New System.Drawing.Size(86, 33)
         Me.ButtonScanner.TabIndex = 2
@@ -64,7 +70,7 @@ Partial Class MainForm
         '
         'ButtonParser
         '
-        Me.ButtonParser.Location = New System.Drawing.Point(104, 406)
+        Me.ButtonParser.Location = New System.Drawing.Point(104, 455)
         Me.ButtonParser.Name = "ButtonParser"
         Me.ButtonParser.Size = New System.Drawing.Size(86, 33)
         Me.ButtonParser.TabIndex = 3
@@ -81,15 +87,15 @@ Partial Class MainForm
         Me.ComboBoxLanguage.Items.AddRange(New Object() {"Pascal", "C", "C++"})
         Me.ComboBoxLanguage.Location = New System.Drawing.Point(12, 55)
         Me.ComboBoxLanguage.Name = "ComboBoxLanguage"
-        Me.ComboBoxLanguage.Size = New System.Drawing.Size(244, 21)
+        Me.ComboBoxLanguage.Size = New System.Drawing.Size(212, 21)
         Me.ComboBoxLanguage.TabIndex = 4
         '
         'ProgressBarLoader
         '
         Me.ProgressBarLoader.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ProgressBarLoader.Location = New System.Drawing.Point(0, 455)
+        Me.ProgressBarLoader.Location = New System.Drawing.Point(0, 494)
         Me.ProgressBarLoader.Name = "ProgressBarLoader"
-        Me.ProgressBarLoader.Size = New System.Drawing.Size(675, 14)
+        Me.ProgressBarLoader.Size = New System.Drawing.Size(735, 14)
         Me.ProgressBarLoader.TabIndex = 5
         '
         'Label1
@@ -106,16 +112,16 @@ Partial Class MainForm
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(12, 95)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(74, 13)
+        Me.Label2.Size = New System.Drawing.Size(69, 13)
         Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Program Code"
+        Me.Label2.Text = "Source Code"
         '
         'MenuStrip
         '
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(675, 24)
+        Me.MenuStrip.Size = New System.Drawing.Size(735, 24)
         Me.MenuStrip.TabIndex = 9
         Me.MenuStrip.Text = "MenuStrip1"
         '
@@ -124,7 +130,7 @@ Partial Class MainForm
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolsToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "File"
+        Me.FileToolStripMenuItem.Text = "&File"
         '
         'ToolsToolStripMenuItem
         '
@@ -156,7 +162,7 @@ Partial Class MainForm
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LicenseToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.HelpToolStripMenuItem.Text = "Help"
+        Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'LicenseToolStripMenuItem
         '
@@ -176,26 +182,83 @@ Partial Class MainForm
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(339, 95)
+        Me.Label4.Location = New System.Drawing.Point(368, 95)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(37, 13)
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "Result"
         '
-        'RichTextBox3
+        'RichTextBoxResult
         '
-        Me.RichTextBox3.Location = New System.Drawing.Point(342, 111)
-        Me.RichTextBox3.Name = "RichTextBox3"
-        Me.RichTextBox3.Size = New System.Drawing.Size(324, 274)
-        Me.RichTextBox3.TabIndex = 11
-        Me.RichTextBox3.Text = ""
+        Me.RichTextBoxResult.Location = New System.Drawing.Point(371, 111)
+        Me.RichTextBoxResult.Name = "RichTextBoxResult"
+        Me.RichTextBoxResult.ReadOnly = True
+        Me.RichTextBoxResult.Size = New System.Drawing.Size(353, 338)
+        Me.RichTextBoxResult.TabIndex = 11
+        Me.RichTextBoxResult.Text = ""
+        '
+        'ButtonCopy
+        '
+        Me.ButtonCopy.Location = New System.Drawing.Point(637, 455)
+        Me.ButtonCopy.Name = "ButtonCopy"
+        Me.ButtonCopy.Size = New System.Drawing.Size(86, 33)
+        Me.ButtonCopy.TabIndex = 12
+        Me.ButtonCopy.Text = "&Copy"
+        Me.ButtonCopy.UseVisualStyleBackColor = True
+        '
+        'ComboBoxTestCase
+        '
+        Me.ComboBoxTestCase.AutoCompleteCustomSource.AddRange(New String() {"Test 1 - Variable Change Program", "Test 2 - Sorting Program"})
+        Me.ComboBoxTestCase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxTestCase.FormattingEnabled = True
+        Me.ComboBoxTestCase.Items.AddRange(New Object() {"Test 1 - Variable Change Program", "Test 2 - Sorting Program"})
+        Me.ComboBoxTestCase.Location = New System.Drawing.Point(230, 55)
+        Me.ComboBoxTestCase.Name = "ComboBoxTestCase"
+        Me.ComboBoxTestCase.Size = New System.Drawing.Size(212, 21)
+        Me.ComboBoxTestCase.TabIndex = 13
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(227, 39)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(94, 13)
+        Me.Label3.TabIndex = 14
+        Me.Label3.Text = "Choose Test Case"
+        '
+        'CheckBoxShowLog
+        '
+        Me.CheckBoxShowLog.AutoSize = True
+        Me.CheckBoxShowLog.Enabled = False
+        Me.CheckBoxShowLog.Location = New System.Drawing.Point(465, 57)
+        Me.CheckBoxShowLog.Name = "CheckBoxShowLog"
+        Me.CheckBoxShowLog.Size = New System.Drawing.Size(44, 17)
+        Me.CheckBoxShowLog.TabIndex = 15
+        Me.CheckBoxShowLog.Text = "Log"
+        Me.CheckBoxShowLog.UseVisualStyleBackColor = True
+        '
+        'CheckBoxStepByStep
+        '
+        Me.CheckBoxStepByStep.AutoSize = True
+        Me.CheckBoxStepByStep.Enabled = False
+        Me.CheckBoxStepByStep.Location = New System.Drawing.Point(515, 57)
+        Me.CheckBoxStepByStep.Name = "CheckBoxStepByStep"
+        Me.CheckBoxStepByStep.Size = New System.Drawing.Size(87, 17)
+        Me.CheckBoxStepByStep.TabIndex = 16
+        Me.CheckBoxStepByStep.Text = "Step by Step"
+        Me.CheckBoxStepByStep.UseVisualStyleBackColor = True
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(675, 469)
-        Me.Controls.Add(Me.RichTextBox3)
+        Me.ClientSize = New System.Drawing.Size(735, 508)
+        Me.Controls.Add(Me.CheckBoxStepByStep)
+        Me.Controls.Add(Me.CheckBoxShowLog)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.ComboBoxTestCase)
+        Me.Controls.Add(Me.ButtonCopy)
+        Me.Controls.Add(Me.RichTextBoxResult)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -203,9 +266,10 @@ Partial Class MainForm
         Me.Controls.Add(Me.ComboBoxLanguage)
         Me.Controls.Add(Me.ButtonParser)
         Me.Controls.Add(Me.ButtonScanner)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.RichTextBoxSource)
         Me.Controls.Add(Me.MenuStrip)
         Me.MainMenuStrip = Me.MenuStrip
+        Me.MaximizeBox = False
         Me.Name = "MainForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "High Level Language Scanner & Parser"
@@ -215,7 +279,7 @@ Partial Class MainForm
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
+    Friend WithEvents RichTextBoxSource As System.Windows.Forms.RichTextBox
     Friend WithEvents ButtonScanner As System.Windows.Forms.Button
     Friend WithEvents ButtonParser As System.Windows.Forms.Button
     Friend WithEvents ComboBoxLanguage As System.Windows.Forms.ComboBox
@@ -231,8 +295,13 @@ Partial Class MainForm
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TimerLoader As System.Windows.Forms.Timer
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents RichTextBox3 As System.Windows.Forms.RichTextBox
+    Friend WithEvents RichTextBoxResult As System.Windows.Forms.RichTextBox
     Friend WithEvents ScanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ParseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ButtonCopy As System.Windows.Forms.Button
+    Friend WithEvents ComboBoxTestCase As System.Windows.Forms.ComboBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents CheckBoxShowLog As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxStepByStep As System.Windows.Forms.CheckBox
 
 End Class
