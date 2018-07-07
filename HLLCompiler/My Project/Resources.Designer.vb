@@ -11,6 +11,7 @@
 Option Strict On
 Option Explicit On
 
+Imports System
 
 Namespace My.Resources
     
@@ -21,42 +22,222 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"), _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(), _
-     Global.Microsoft.VisualBasic.HideModuleNameAttribute()> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
+     Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
     Friend Module Resources
-
+        
         Private resourceMan As Global.System.Resources.ResourceManager
-
+        
         Private resourceCulture As Global.System.Globalization.CultureInfo
-
+        
         '''<summary>
         '''  Returns the cached ResourceManager instance used by this class.
         '''</summary>
-        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
+        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
         Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("WindowsApplication1.Resources", GetType(Resources).Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("HLLCompiler.Resources", GetType(Resources).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
             End Get
         End Property
-
+        
         '''<summary>
         '''  Overrides the current thread's CurrentUICulture property for all
         '''  resource lookups using this strongly typed resource class.
         '''</summary>
-        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
+        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
         Friend Property Culture() As Global.System.Globalization.CultureInfo
             Get
                 Return resourceCulture
             End Get
-            Set(ByVal value As Global.System.Globalization.CultureInfo)
+            Set
                 resourceCulture = value
             End Set
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to program bubble_sort_data_array;
+        '''
+        '''uses crt;
+        '''
+        '''const
+        '''     max = 10;
+        '''
+        '''type
+        '''    larik = array[1..max] of integer;
+        '''
+        '''var
+        '''    data:larik;
+        '''    tahap, langkah:integer;
+        '''    ulang:char;
+        '''
+        '''    procedure insert_data(var data:larik);
+        '''
+        '''    begin
+        '''         data[1] := 24;
+        '''         data[2] := 41;
+        '''         data[3] := 73;
+        '''         data[4] := 88;
+        '''         data[5] := 89;
+        '''         data[6] := 64;
+        '''         data[7] := 41;
+        '''         data[8] := 18;
+        '''         data[9] := 64;
+        '''         data[10] := 73;
+        '''    end;
+        '''
+        '''   [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property bubble_sort_data_array() As String
+            Get
+                Return ResourceManager.GetString("bubble_sort_data_array", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {I.S : user memasukan berapa lama proyek dikerjakan dalam hari}
+        '''{F.S : menampilkan berapa tahun, bulan, dan hari proyek dikerjakan}
+        '''
+        '''program menghitung_jumlah_tahun_bulan_hari;
+        '''
+        '''var
+        '''     tahun, bulan, hari, sisa_hari:integer;
+        '''
+        '''const
+        '''     jumlah_tahun_hari = 365;
+        '''     jumlah_bulan_hari = 30;
+        '''
+        '''begin
+        '''     writeln(&apos;Selamat datang di aplikasi Penghitungan Lama Proyek&apos;);
+        '''     write(&apos;Silahkan tekan enter untuk melanjutkan..&apos;);
+        '''     readln();
+        '''     writeln();
+        '''     write(&apos;Berapa hari proyek dikerjaka [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property jumlah_tahun_bulan_hari() As String
+            Get
+                Return ResourceManager.GetString("jumlah_tahun_bulan_hari", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to -
+        '''*
+        '''/
+        ''':=
+        '''+
+        '''+
+        '''&lt;
+        '''&lt;=
+        '''&lt;&gt;
+        '''=
+        '''&gt;
+        '''&gt;=
+        '''abs
+        '''and
+        '''arctan
+        '''array
+        '''asm
+        '''assign
+        '''begin
+        '''boolean
+        '''break
+        '''case
+        '''char
+        '''chr
+        '''close
+        '''const
+        '''constructor
+        '''continue
+        '''copy
+        '''cos
+        '''delay
+        '''destructor
+        '''dispose
+        '''div
+        '''do
+        '''downto
+        '''else
+        '''end
+        '''eof
+        '''eoln
+        '''exp
+        '''false
+        '''file
+        '''for
+        '''function
+        '''get
+        '''goto
+        '''gotoxy
+        '''if
+        '''implementation
+        '''in
+        '''inline
+        '''input
+        '''integer
+        '''interface
+        '''label
+        '''length
+        '''ln
+        '''maxint
+        '''mod
+        '''new
+        '''nil
+        '''not
+        '''object
+        '''odd
+        '''of
+        '''on
+        '''operator
+        '''or
+        '''ord
+        '''output
+        '''pack
+        '''packed
+        '''page
+        '''pred
+        '''procedure
+        '''program
+        '''put
+        '''random
+        '''read
+        '''readln
+        ''' [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property keywords_pascal() As String
+            Get
+                Return ResourceManager.GetString("keywords_pascal", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {I.S : user memasukan nilai x, y, dan z}
+        '''{F.S : menampilkan nilai x, y, dan z dalam format (y,z,x)}
+        '''
+        '''program menukar_variabel_xyz;
+        '''
+        '''var
+        '''     input_x,input_y,input_z:integer;
+        '''
+        '''begin
+        '''     writeln(&apos;Selamat datang di aplikasi Penukar Variabel xYz&apos;);
+        '''     write(&apos;Silahkan tekan enter untuk melanjutkan..&apos;);
+        '''     readln();
+        '''     writeln();
+        '''     write(&apos;Masukan nilai x : &apos;);readln(input_x);
+        '''     write(&apos;Masukan nilai y : &apos;);readln(input_y);
+        '''     write(&apos;Masukan nilai z : &apos;);readln(input_z);
+        '''     writeln( [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property menukar_variabel_xyz() As String
+            Get
+                Return ResourceManager.GetString("menukar_variabel_xyz", resourceCulture)
+            End Get
         End Property
     End Module
 End Namespace

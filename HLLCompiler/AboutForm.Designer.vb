@@ -22,7 +22,6 @@ Partial Class AboutForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AboutForm))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.ButtonOk = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -34,7 +33,8 @@ Partial Class AboutForm
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(294, 231)
         Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
+        Me.RichTextBox1.Text = "High Level Language Scanner & Parser" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "Supported Language:" & Global.Microsoft.VisualBasic.ChrW(10) & "- Pascal" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "Created by:" & Global.Microsoft.VisualBasic.ChrW(10) & "G" & _
+            "urisa Devs" & Global.Microsoft.VisualBasic.ChrW(10) & "- https://www.gurisa.com" & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'ButtonOk
         '

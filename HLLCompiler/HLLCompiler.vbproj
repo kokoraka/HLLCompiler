@@ -8,8 +8,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{5A5BE35A-BD59-4D24-93CF-3BCBF110ABCD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>WindowsApplication1.My.MyApplication</StartupObject>
-    <RootNamespace>WindowsApplication1</RootNamespace>
+    <StartupObject>HLLCompiler.My.MyApplication</StartupObject>
+    <RootNamespace>HLLCompiler</RootNamespace>
     <AssemblyName>HLLCompiler</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
@@ -85,7 +85,7 @@
       <DependentUpon>MainForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainModule.vb" />
+    <Compile Include="MainPascalModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -111,9 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +126,12 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="Resources\bubble_sort_data_array_pascal.pas" />
+    <None Include="Resources\menghitung_jumlah_tahun_bulan_hari.pas" />
+    <None Include="Resources\menukar_variabel_xyz.pas" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keywords_pascal.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

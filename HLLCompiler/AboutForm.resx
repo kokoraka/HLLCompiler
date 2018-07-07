@@ -117,19 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>High Level Language Scanner &amp; Parser
-
-Supported Language:
-- Pascal
-
-Created by:
-Gurisa Devs
-
-Visit us:
-- https://www.gurisa.com
-- https://www.ngaret.com
-- https://www.goharga.com
-- https://www.confucius.id</value>
-  </data>
 </root>
