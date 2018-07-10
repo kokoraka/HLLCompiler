@@ -4,7 +4,10 @@
 
     Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         TimerLoader.Enabled = True
-        ComboBoxLanguage.Text = "Pascal"
+        ComboBoxLanguage.SelectedIndex = 0
+        ComboBoxTestCase.SelectedIndex = 0
+        ComboBoxResultMode.SelectedIndex = 1
+        RichTextBoxResult.Visible = False
     End Sub
 
     Private Sub TimerLoader_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerLoader.Tick
@@ -27,7 +30,19 @@
     Private Sub ButtonScanner_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonScanner.Click
         If (validateInput()) Then
             SourceCode = RichTextBoxSource.Text
-            RichTextBoxResult.Text = scanInput(SourceCode)
+            DataGridViewResult.Rows.Clear()
+
+            Dim construct As String = ""
+            Dim result = scanInput(SourceCode).Select(Function(x) New String() {x.Item1, x.Item2, x.Item3, x.Item4}).ToArray()
+
+            For Each data As String() In result
+                construct &= "[" & data(0) & ", " & data(1) & "] "
+                construct &= data(2) & " = "
+                construct &= data(3) & vbCrLf
+                DataGridViewResult.Rows.Add(If(data(1) = data(0), 1, data(1) - If(data(0) = 0, 1, data(0))), data(2), data(3))
+            Next
+
+            RichTextBoxResult.Text = construct
         End If
     End Sub
 
@@ -56,6 +71,7 @@
     Private Sub ButtonClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonClear.Click
         RichTextBoxSource.Text = ""
         LabelSourceCode.Text = "Source Code"
+        DataGridViewResult.Rows.Clear()
     End Sub
 
     Private Sub ComboBoxTestCase_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBoxTestCase.SelectedIndexChanged
@@ -83,4 +99,15 @@
     Private Sub LicenseToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LicenseToolStripMenuItem1.Click
         MsgBox("Copyrighted (c) Gurisa.Com", MsgBoxStyle.Information, "Gurisa Devs")
     End Sub
+
+    Private Sub ComboBoxResultMode_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ComboBoxResultMode.SelectedIndexChanged
+        If (ComboBoxResultMode.Text = "Text Mode") Then
+            RichTextBoxResult.Visible = True
+            DataGridViewResult.Visible = False
+        ElseIf (ComboBoxResultMode.Text = "Table Mode") Then
+            DataGridViewResult.Visible = True
+            RichTextBoxResult.Visible = False
+        End If
+    End Sub
+
 End Class

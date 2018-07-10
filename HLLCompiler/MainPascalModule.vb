@@ -71,10 +71,9 @@ Module MainPascalModule
         Return False
     End Function
 
-    Public Function scanInput(ByVal source As String) As String
-        Dim token As String = ""
+    Public Function scanInput(ByVal source As String) As List(Of Tuple(Of Integer, Integer, String, String))
         Dim word As String = ""
-        Dim result As String = ""
+        Dim scanResult As New List(Of Tuple(Of Integer, Integer, String, String))
         Dim i As Integer = 0
         Dim j As Integer = 0
 
@@ -86,8 +85,7 @@ Module MainPascalModule
                 Do While (data(j) <> "}" And j < data.Length - 1)
                     j += 1
                 Loop
-                token = writeCode(data, i, j) & " = Komentar"
-                result &= "[" & i & "] " & token & vbCrLf
+                scanResult.Add(Tuple.Create(i, j, writeCode(data, i, j), "Komentar"))
                 i = j
             End If
 
@@ -96,8 +94,7 @@ Module MainPascalModule
                 Do While (data(j) <> "'" And j < data.Length - 1)
                     j += 1
                 Loop
-                token = writeCode(data, i, j) & " = Konstanta"
-                result &= "[" & i & "] " & token & vbCrLf
+                scanResult.Add(Tuple.Create(i, j, writeCode(data, i, j), "Konstanta"))
                 i = j
             End If
 
@@ -107,10 +104,7 @@ Module MainPascalModule
                     word &= data(j)
                     j += 1
                 Loop
-
-                token &= writeCode(data, i, j - 1)
-                token &= If(isKeyword(word), " = Keyword", " = Variabel")
-                result &= "[" & i & "] " & token & vbCrLf
+                scanResult.Add(Tuple.Create(i, j - 1, writeCode(data, i, j - 1), If(isKeyword(word), "Keyword", "Variabel")))
                 i = j
                 word = ""
             End If
@@ -120,8 +114,7 @@ Module MainPascalModule
                 Do While (Array.Exists(numbers, Function(s) s = data(j)) And j < data.Length - 1)
                     j += 1
                 Loop
-                token = writeCode(data, i, j - 1) & " = Bilangan"
-                result &= "[" & i & "] " & token & vbCrLf
+                scanResult.Add(Tuple.Create(i, j - 1, writeCode(data, i, j - 1), "Bilangan"))
                 i = j
             End If
 
@@ -130,21 +123,17 @@ Module MainPascalModule
                 Do While (Array.Exists(operators, Function(s) s = data(j)) And j < data.Length - 1)
                     j += 1
                 Loop
-                token = writeCode(data, i, j - 1) & " = Operator"
-                result &= "[" & i & "] " & token & vbCrLf
+                scanResult.Add(Tuple.Create(i, j, writeCode(data, i, j - 1), "Operator"))
                 i = j
             End If
 
             If (Array.Exists(delimiters, Function(s) s = data(i))) Then 'Delimiter
-                token = writeCode(data, i, i) & " = Delimiter"
-                result &= "[" & i & "] " & token & vbCrLf
+                scanResult.Add(Tuple.Create(i, i, writeCode(data, i, i), "Delimiter"))
             End If
-
-            token = ""
             i += 1
         Loop
 
-        Return result
+        Return scanResult
     End Function
 
     Public Function parseInput() As String

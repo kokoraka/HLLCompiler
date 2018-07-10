@@ -58,20 +58,27 @@ Partial Class MainForm
         Me.LicenseToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.DataGridViewResult = New System.Windows.Forms.DataGridView()
+        Me.ComboBoxResultMode = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.length = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.token = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip.SuspendLayout()
+        CType(Me.DataGridViewResult, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RichTextBoxSource
         '
         Me.RichTextBoxSource.Location = New System.Drawing.Point(12, 97)
         Me.RichTextBoxSource.Name = "RichTextBoxSource"
-        Me.RichTextBoxSource.Size = New System.Drawing.Size(353, 352)
+        Me.RichTextBoxSource.Size = New System.Drawing.Size(353, 431)
         Me.RichTextBoxSource.TabIndex = 0
         Me.RichTextBoxSource.Text = ""
         '
         'ButtonScanner
         '
-        Me.ButtonScanner.Location = New System.Drawing.Point(12, 455)
+        Me.ButtonScanner.Location = New System.Drawing.Point(13, 534)
         Me.ButtonScanner.Name = "ButtonScanner"
         Me.ButtonScanner.Size = New System.Drawing.Size(86, 33)
         Me.ButtonScanner.TabIndex = 2
@@ -80,7 +87,8 @@ Partial Class MainForm
         '
         'ButtonParser
         '
-        Me.ButtonParser.Location = New System.Drawing.Point(104, 455)
+        Me.ButtonParser.Enabled = False
+        Me.ButtonParser.Location = New System.Drawing.Point(105, 534)
         Me.ButtonParser.Name = "ButtonParser"
         Me.ButtonParser.Size = New System.Drawing.Size(86, 33)
         Me.ButtonParser.TabIndex = 3
@@ -97,15 +105,15 @@ Partial Class MainForm
         Me.ComboBoxLanguage.Items.AddRange(New Object() {"Pascal", "C", "C++"})
         Me.ComboBoxLanguage.Location = New System.Drawing.Point(12, 47)
         Me.ComboBoxLanguage.Name = "ComboBoxLanguage"
-        Me.ComboBoxLanguage.Size = New System.Drawing.Size(212, 21)
+        Me.ComboBoxLanguage.Size = New System.Drawing.Size(188, 21)
         Me.ComboBoxLanguage.TabIndex = 4
         '
         'ProgressBarLoader
         '
         Me.ProgressBarLoader.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ProgressBarLoader.Location = New System.Drawing.Point(0, 494)
+        Me.ProgressBarLoader.Location = New System.Drawing.Point(0, 573)
         Me.ProgressBarLoader.Name = "ProgressBarLoader"
-        Me.ProgressBarLoader.Size = New System.Drawing.Size(735, 14)
+        Me.ProgressBarLoader.Size = New System.Drawing.Size(780, 14)
         Me.ProgressBarLoader.TabIndex = 5
         '
         'Label1
@@ -200,13 +208,13 @@ Partial Class MainForm
         Me.RichTextBoxResult.Location = New System.Drawing.Point(371, 97)
         Me.RichTextBoxResult.Name = "RichTextBoxResult"
         Me.RichTextBoxResult.ReadOnly = True
-        Me.RichTextBoxResult.Size = New System.Drawing.Size(353, 352)
+        Me.RichTextBoxResult.Size = New System.Drawing.Size(397, 431)
         Me.RichTextBoxResult.TabIndex = 11
         Me.RichTextBoxResult.Text = ""
         '
         'ButtonCopy
         '
-        Me.ButtonCopy.Location = New System.Drawing.Point(637, 455)
+        Me.ButtonCopy.Location = New System.Drawing.Point(682, 534)
         Me.ButtonCopy.Name = "ButtonCopy"
         Me.ButtonCopy.Size = New System.Drawing.Size(86, 33)
         Me.ButtonCopy.TabIndex = 12
@@ -219,15 +227,15 @@ Partial Class MainForm
         Me.ComboBoxTestCase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxTestCase.FormattingEnabled = True
         Me.ComboBoxTestCase.Items.AddRange(New Object() {"Test 1 - Variable Change Program", "Test 2 - Date Count Program", "Test 3 - Bubble Sort Program"})
-        Me.ComboBoxTestCase.Location = New System.Drawing.Point(230, 47)
+        Me.ComboBoxTestCase.Location = New System.Drawing.Point(206, 47)
         Me.ComboBoxTestCase.Name = "ComboBoxTestCase"
-        Me.ComboBoxTestCase.Size = New System.Drawing.Size(212, 21)
+        Me.ComboBoxTestCase.Size = New System.Drawing.Size(188, 21)
         Me.ComboBoxTestCase.TabIndex = 13
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(227, 31)
+        Me.Label3.Location = New System.Drawing.Point(203, 31)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(94, 13)
         Me.Label3.TabIndex = 14
@@ -237,7 +245,7 @@ Partial Class MainForm
         '
         Me.CheckBoxShowLog.AutoSize = True
         Me.CheckBoxShowLog.Enabled = False
-        Me.CheckBoxShowLog.Location = New System.Drawing.Point(465, 49)
+        Me.CheckBoxShowLog.Location = New System.Drawing.Point(594, 47)
         Me.CheckBoxShowLog.Name = "CheckBoxShowLog"
         Me.CheckBoxShowLog.Size = New System.Drawing.Size(44, 17)
         Me.CheckBoxShowLog.TabIndex = 15
@@ -248,7 +256,7 @@ Partial Class MainForm
         '
         Me.CheckBoxStepByStep.AutoSize = True
         Me.CheckBoxStepByStep.Enabled = False
-        Me.CheckBoxStepByStep.Location = New System.Drawing.Point(515, 49)
+        Me.CheckBoxStepByStep.Location = New System.Drawing.Point(644, 47)
         Me.CheckBoxStepByStep.Name = "CheckBoxStepByStep"
         Me.CheckBoxStepByStep.Size = New System.Drawing.Size(87, 17)
         Me.CheckBoxStepByStep.TabIndex = 16
@@ -262,7 +270,7 @@ Partial Class MainForm
         '
         'ButtonClear
         '
-        Me.ButtonClear.Location = New System.Drawing.Point(196, 455)
+        Me.ButtonClear.Location = New System.Drawing.Point(197, 534)
         Me.ButtonClear.Name = "ButtonClear"
         Me.ButtonClear.Size = New System.Drawing.Size(86, 33)
         Me.ButtonClear.TabIndex = 17
@@ -325,15 +333,70 @@ Partial Class MainForm
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem1, Me.HelpToolStripMenuItem1})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(735, 24)
+        Me.MenuStrip.Size = New System.Drawing.Size(780, 24)
         Me.MenuStrip.TabIndex = 9
         Me.MenuStrip.Text = "MenuStrip"
+        '
+        'DataGridViewResult
+        '
+        Me.DataGridViewResult.AllowUserToAddRows = False
+        Me.DataGridViewResult.AllowUserToDeleteRows = False
+        Me.DataGridViewResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewResult.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.length, Me.token, Me.type})
+        Me.DataGridViewResult.Location = New System.Drawing.Point(370, 97)
+        Me.DataGridViewResult.Name = "DataGridViewResult"
+        Me.DataGridViewResult.Size = New System.Drawing.Size(397, 431)
+        Me.DataGridViewResult.TabIndex = 18
+        '
+        'ComboBoxResultMode
+        '
+        Me.ComboBoxResultMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxResultMode.FormattingEnabled = True
+        Me.ComboBoxResultMode.Items.AddRange(New Object() {"Text Mode", "Table Mode"})
+        Me.ComboBoxResultMode.Location = New System.Drawing.Point(400, 47)
+        Me.ComboBoxResultMode.Name = "ComboBoxResultMode"
+        Me.ComboBoxResultMode.Size = New System.Drawing.Size(188, 21)
+        Me.ComboBoxResultMode.TabIndex = 19
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(397, 31)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(71, 13)
+        Me.Label2.TabIndex = 20
+        Me.Label2.Text = "Display Mode"
+        '
+        'length
+        '
+        Me.length.HeaderText = "Panjang"
+        Me.length.MinimumWidth = 70
+        Me.length.Name = "length"
+        Me.length.Width = 70
+        '
+        'token
+        '
+        Me.token.HeaderText = "Token"
+        Me.token.MinimumWidth = 200
+        Me.token.Name = "token"
+        Me.token.ToolTipText = "Token"
+        Me.token.Width = 200
+        '
+        'type
+        '
+        Me.type.HeaderText = "Jenis"
+        Me.type.MinimumWidth = 100
+        Me.type.Name = "type"
+        Me.type.ToolTipText = "Jenis Token"
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(735, 508)
+        Me.ClientSize = New System.Drawing.Size(780, 587)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.ComboBoxResultMode)
+        Me.Controls.Add(Me.DataGridViewResult)
         Me.Controls.Add(Me.ButtonClear)
         Me.Controls.Add(Me.CheckBoxStepByStep)
         Me.Controls.Add(Me.CheckBoxShowLog)
@@ -358,6 +421,7 @@ Partial Class MainForm
         Me.Text = "High Level Language Scanner & Parser"
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
+        CType(Me.DataGridViewResult, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -397,5 +461,11 @@ Partial Class MainForm
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents ScanToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ParseToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DataGridViewResult As System.Windows.Forms.DataGridView
+    Friend WithEvents ComboBoxResultMode As System.Windows.Forms.ComboBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents length As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents token As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents type As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class
