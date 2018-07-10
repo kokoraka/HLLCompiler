@@ -350,6 +350,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.ButtonScanner)
         Me.Controls.Add(Me.RichTextBoxSource)
         Me.Controls.Add(Me.MenuStrip)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MainMenuStrip = Me.MenuStrip
         Me.MaximizeBox = False
         Me.Name = "MainForm"

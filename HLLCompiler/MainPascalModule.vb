@@ -1,6 +1,10 @@
 ﻿Imports System.Text.RegularExpressions
 
 Module MainPascalModule
+    Dim alphabets() As Char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_".ToCharArray()
+    Dim numbers() As Char = "0123456789".ToCharArray()
+    Dim operators() As String = {"+", "-", "*", "/", ":=", "<", ">", "<=", ">=", "=", "<>"}
+    Dim delimiters() As Char = "()[]^:;,.".ToCharArray()
 
     Public Function testCase(ByVal test) As String
         If (test = 1) Then
@@ -30,10 +34,6 @@ Module MainPascalModule
         Return Regex.Replace(data, "{([\w\r\n\t.,:() ])*}", "")
     End Function
 
-    Public Function removeSpaces(ByVal data As String) As String
-        Return data.Trim
-    End Function
-
     Public Function removeLines(ByVal data As String) As String
         Return Regex.Replace(data, System.Environment.NewLine, "")
     End Function
@@ -52,84 +52,97 @@ Module MainPascalModule
         Return result
     End Function
 
-    Public Function compare(ByVal a, ByVal b) As Boolean
-        Return (a = b)
+    Public Function inRange(ByVal range As Array, ByVal data As String) As Boolean
+        For i As Integer = 0 To range.Length - 1
+            If (range(i) = removeLines(data.Trim)) Then
+                Return True
+            End If
+        Next
+        Return False
     End Function
 
-    Public Function scanInput(ByVal data As String) As String
-        Dim sourceCode As String = data
+    Public Function isKeyword(ByVal data As String) As Boolean
         Dim keywords() As String = getKeywords()
-        Dim alphabets() As Char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_".ToCharArray()
-        Dim numbers() As Char = "0123456789".ToCharArray()
-        Dim operators() As String = {"+", "-", "*", "/", ":=", "<", ">", "<=", ">=", "=", "<>"}
-        Dim delimiters() As Char = "()[]^:;,.".ToCharArray()
-        Dim token As String = ""
-        Dim result As String = ""
-        Dim i, j As Integer
+        For i As Integer = 0 To keywords.Length - 1
+            If (removeLines(keywords(i).Trim) = removeLines(data.Trim)) Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 
-        For i = 0 To data.Length - 1
+    Public Function scanInput(ByVal source As String) As String
+        Dim token As String = ""
+        Dim word As String = ""
+        Dim result As String = ""
+        Dim i As Integer = 0
+        Dim j As Integer = 0
+
+        Dim data() As Char = source.ToCharArray()
+
+        Do While (i < data.Length - 1)
             If (data(i) = "{") Then 'Komentar
-                j = If(i < data.Length, i + 1, i)
-                Do Until (data(j) = "}" And j < data.Length)
+                j = If(i + 1 < data.Length, i + 1, i)
+                Do While (data(j) <> "}" And j < data.Length - 1)
                     j += 1
                 Loop
                 token = writeCode(data, i, j) & " = Komentar"
-                result &= token & vbCrLf
+                result &= "[" & i & "] " & token & vbCrLf
                 i = j
             End If
 
             If (data(i) = "'") Then 'Petik Satu
-                j = If(i < data.Length, i + 1, i)
-                Do Until (data(j) = "'" And j < data.Length)
+                j = If(i + 1 < data.Length, i + 1, i)
+                Do While (data(j) <> "'" And j < data.Length - 1)
                     j += 1
                 Loop
                 token = writeCode(data, i, j) & " = Konstanta"
-                result &= token & vbCrLf
+                result &= "[" & i & "] " & token & vbCrLf
                 i = j
             End If
 
-            If (Array.Exists(alphabets, Function(s) s = data(i))) Then 'Alphabet dan Underscore | Keywords
-                j = If(i < data.Length, i + 1, i)
-                Do Until (Not Array.Exists(alphabets, Function(s) s = data(j)) And j < data.Length)
+            If (inRange(alphabets, data(i))) Then 'Alphabet dan Underscore | Keywords
+                j = i
+                Do While (inRange(alphabets, data(j)) And j < data.Length - 1)
+                    word &= data(j)
                     j += 1
                 Loop
-                token = writeCode(data, i, j) & " = Variabel"
-                result &= token & vbCrLf
+
+                token &= writeCode(data, i, j - 1)
+                token &= If(isKeyword(word), " = Keyword", " = Variabel")
+                result &= "[" & i & "] " & token & vbCrLf
                 i = j
-                'cek apakah keyword atau bukan juga
+                word = ""
             End If
 
             If (Array.Exists(numbers, Function(s) s = data(i))) Then 'Bilangan
-                j = If(i < data.Length, i + 1, i)
-                Do Until (Not Array.Exists(numbers, Function(s) s = data(j)) And j < data.Length)
+                j = i
+                Do While (Array.Exists(numbers, Function(s) s = data(j)) And j < data.Length - 1)
                     j += 1
                 Loop
-                token = writeCode(data, i, j) & " = Bilangan"
-                result &= token & vbCrLf
+                token = writeCode(data, i, j - 1) & " = Bilangan"
+                result &= "[" & i & "] " & token & vbCrLf
                 i = j
             End If
 
             If (Array.Exists(operators, Function(s) s = data(i))) Then 'Operator
-                j = If(i < data.Length, i + 1, i)
-                Do Until (Not Array.Exists(operators, Function(s) s = data(j)) And j < data.Length)
+                j = i
+                Do While (Array.Exists(operators, Function(s) s = data(j)) And j < data.Length - 1)
                     j += 1
                 Loop
-                token = writeCode(data, i, j) & " = Operator"
-                result &= token & vbCrLf
+                token = writeCode(data, i, j - 1) & " = Operator"
+                result &= "[" & i & "] " & token & vbCrLf
                 i = j
             End If
 
             If (Array.Exists(delimiters, Function(s) s = data(i))) Then 'Delimiter
-                j = If(i < data.Length, i + 1, i)
-                Do Until (Not Array.Exists(delimiters, Function(s) s = data(j)) And j < data.Length)
-                    j += 1
-                Loop
-                token = writeCode(data, i, j) & " = Delimiter"
-                result &= token & vbCrLf
-                i = j
+                token = writeCode(data, i, i) & " = Delimiter"
+                result &= "[" & i & "] " & token & vbCrLf
             End If
 
-        Next
+            token = ""
+            i += 1
+        Loop
 
         Return result
     End Function

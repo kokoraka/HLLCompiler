@@ -52,6 +52,7 @@ Partial Class AboutForm
         Me.ClientSize = New System.Drawing.Size(318, 285)
         Me.Controls.Add(Me.ButtonOk)
         Me.Controls.Add(Me.RichTextBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "AboutForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
