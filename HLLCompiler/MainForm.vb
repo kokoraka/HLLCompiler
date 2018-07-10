@@ -36,9 +36,8 @@
             Dim result = scanInput(SourceCode).Select(Function(x) New String() {x.Item1, x.Item2, x.Item3, x.Item4}).ToArray()
 
             For Each data As String() In result
-                construct &= "[" & data(0) & ", " & data(1) & "] "
-                construct &= data(2) & " = "
-                construct &= data(3) & vbCrLf
+                construct &= "[" & data(0) & ", " & data(1) & "] - [" & data(3) & "] "
+                construct &= data(2) & vbCrLf
                 DataGridViewResult.Rows.Add(If(data(1) = data(0), 1, data(1) - If(data(0) = 0, 1, data(0))), data(2), data(3))
             Next
 

@@ -18,3 +18,7 @@ D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Debug\HLLCompiler.vbproj.Generate
 D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Debug\HLLCompiler.AboutForm.resources
 D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Debug\HLLCompiler.MainForm.resources
 D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Debug\HLLCompiler.Resources.resources
+D:\projects\vs\HLLCompiler\HLLCompiler\bin\Debug\HLLCompiler.exe.manifest
+D:\projects\vs\HLLCompiler\HLLCompiler\bin\Debug\HLLCompiler.application
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Debug\HLLCompiler.exe.manifest
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Debug\HLLCompiler.application

@@ -1,0 +1,14 @@
+D:\projects\vs\HLLCompiler\HLLCompiler\bin\Release\HLLCompiler.exe.manifest
+D:\projects\vs\HLLCompiler\HLLCompiler\bin\Release\HLLCompiler.application
+D:\projects\vs\HLLCompiler\HLLCompiler\bin\Release\HLLCompiler.exe
+D:\projects\vs\HLLCompiler\HLLCompiler\bin\Release\HLLCompiler.pdb
+D:\projects\vs\HLLCompiler\HLLCompiler\bin\Release\HLLCompiler.xml
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.AboutForm.resources
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.MainForm.resources
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.Resources.resources
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.vbproj.GenerateResource.Cache
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.exe.manifest
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.application
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.exe
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.xml
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.pdb
