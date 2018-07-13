@@ -59,11 +59,12 @@ Partial Class MainForm
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.DataGridViewResult = New System.Windows.Forms.DataGridView()
-        Me.ComboBoxResultMode = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.length = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.token = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ComboBoxResultMode = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.OpenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         CType(Me.DataGridViewResult, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -279,7 +280,7 @@ Partial Class MainForm
         '
         'FileToolStripMenuItem1
         '
-        Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolsToolStripMenuItem1, Me.ExitToolStripMenuItem1})
+        Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolsToolStripMenuItem1, Me.OpenToolStripMenuItem1, Me.ExitToolStripMenuItem1})
         Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
         Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem1.Text = "File"
@@ -288,25 +289,25 @@ Partial Class MainForm
         '
         Me.ToolsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ScanToolStripMenuItem1, Me.ParseToolStripMenuItem1})
         Me.ToolsToolStripMenuItem1.Name = "ToolsToolStripMenuItem1"
-        Me.ToolsToolStripMenuItem1.Size = New System.Drawing.Size(102, 22)
+        Me.ToolsToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ToolsToolStripMenuItem1.Text = "Tools"
         '
         'ScanToolStripMenuItem1
         '
         Me.ScanToolStripMenuItem1.Name = "ScanToolStripMenuItem1"
-        Me.ScanToolStripMenuItem1.Size = New System.Drawing.Size(102, 22)
+        Me.ScanToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ScanToolStripMenuItem1.Text = "Scan"
         '
         'ParseToolStripMenuItem1
         '
         Me.ParseToolStripMenuItem1.Name = "ParseToolStripMenuItem1"
-        Me.ParseToolStripMenuItem1.Size = New System.Drawing.Size(102, 22)
+        Me.ParseToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ParseToolStripMenuItem1.Text = "Parse"
         '
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(102, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         '
         'HelpToolStripMenuItem1
@@ -319,13 +320,13 @@ Partial Class MainForm
         'LicenseToolStripMenuItem1
         '
         Me.LicenseToolStripMenuItem1.Name = "LicenseToolStripMenuItem1"
-        Me.LicenseToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.LicenseToolStripMenuItem1.Size = New System.Drawing.Size(113, 22)
         Me.LicenseToolStripMenuItem1.Text = "License"
         '
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(113, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'MenuStrip
@@ -348,25 +349,6 @@ Partial Class MainForm
         Me.DataGridViewResult.Size = New System.Drawing.Size(397, 431)
         Me.DataGridViewResult.TabIndex = 18
         '
-        'ComboBoxResultMode
-        '
-        Me.ComboBoxResultMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxResultMode.FormattingEnabled = True
-        Me.ComboBoxResultMode.Items.AddRange(New Object() {"Text Mode", "Table Mode"})
-        Me.ComboBoxResultMode.Location = New System.Drawing.Point(400, 47)
-        Me.ComboBoxResultMode.Name = "ComboBoxResultMode"
-        Me.ComboBoxResultMode.Size = New System.Drawing.Size(188, 21)
-        Me.ComboBoxResultMode.TabIndex = 19
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(397, 31)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(71, 13)
-        Me.Label2.TabIndex = 20
-        Me.Label2.Text = "Display Mode"
-        '
         'length
         '
         Me.length.HeaderText = "Panjang"
@@ -388,6 +370,31 @@ Partial Class MainForm
         Me.type.MinimumWidth = 100
         Me.type.Name = "type"
         Me.type.ToolTipText = "Jenis Token"
+        '
+        'ComboBoxResultMode
+        '
+        Me.ComboBoxResultMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxResultMode.FormattingEnabled = True
+        Me.ComboBoxResultMode.Items.AddRange(New Object() {"Text Mode", "Table Mode"})
+        Me.ComboBoxResultMode.Location = New System.Drawing.Point(400, 47)
+        Me.ComboBoxResultMode.Name = "ComboBoxResultMode"
+        Me.ComboBoxResultMode.Size = New System.Drawing.Size(188, 21)
+        Me.ComboBoxResultMode.TabIndex = 19
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(397, 31)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(71, 13)
+        Me.Label2.TabIndex = 20
+        Me.Label2.Text = "Display Mode"
+        '
+        'OpenToolStripMenuItem1
+        '
+        Me.OpenToolStripMenuItem1.Name = "OpenToolStripMenuItem1"
+        Me.OpenToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.OpenToolStripMenuItem1.Text = "Open"
         '
         'MainForm
         '
@@ -467,5 +474,6 @@ Partial Class MainForm
     Friend WithEvents length As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents token As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents type As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents OpenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

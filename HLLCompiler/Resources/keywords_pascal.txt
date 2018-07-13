@@ -27,6 +27,7 @@ end
 eof
 eoln
 exp
+export
 false
 file
 for
@@ -37,12 +38,14 @@ gotoxy
 if
 implementation
 in
+inherited
 inline
 input
 integer
 interface
 label
 length
+library
 ln
 maxint
 mod

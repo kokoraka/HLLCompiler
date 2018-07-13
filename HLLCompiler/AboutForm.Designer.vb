@@ -33,8 +33,8 @@ Partial Class AboutForm
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(294, 231)
         Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = "High Level Language Scanner & Parser" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "Supported Language:" & Global.Microsoft.VisualBasic.ChrW(10) & "- Pascal" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "Created by:" & Global.Microsoft.VisualBasic.ChrW(10) & "R" & _
-            "aka S.W from Gurisa Devs" & Global.Microsoft.VisualBasic.ChrW(10) & "- https://www.gurisa.com" & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.RichTextBox1.Text = "High Level Language Scanner & Parser" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "Supported Language:" & Global.Microsoft.VisualBasic.ChrW(10) & "- Pascal" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "Supported Too" & _
+            "ls:" & Global.Microsoft.VisualBasic.ChrW(10) & "- Scanning" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "Created by:" & Global.Microsoft.VisualBasic.ChrW(10) & "Raka S.W [Gurisa Devs]" & Global.Microsoft.VisualBasic.ChrW(10) & "- https://www.gurisa.com" & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'ButtonOk
         '

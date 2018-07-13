@@ -59,14 +59,6 @@
 
     End Sub
 
-    Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
-        Me.OpenFileDialog.Filter = "Pascal Source Code (*.pas)|*.pas|Text Documents (*.txt)|*.txt"
-        If OpenFileDialog.ShowDialog = Windows.Forms.DialogResult.OK Then
-            RichTextBoxSource.LoadFile(OpenFileDialog.FileName, RichTextBoxStreamType.PlainText)
-            LabelSourceCode.Text = "Source Code: " & System.IO.Path.GetFileNameWithoutExtension(OpenFileDialog.FileName)
-        End If
-    End Sub
-
     Private Sub ButtonClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonClear.Click
         RichTextBoxSource.Text = ""
         LabelSourceCode.Text = "Source Code"
@@ -109,4 +101,11 @@
         End If
     End Sub
 
+    Private Sub OpenToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem1.Click
+        Me.OpenFileDialog.Filter = "Pascal Source Code (*.pas)|*.pas|Text Documents (*.txt)|*.txt"
+        If OpenFileDialog.ShowDialog = Windows.Forms.DialogResult.OK Then
+            RichTextBoxSource.LoadFile(OpenFileDialog.FileName, RichTextBoxStreamType.PlainText)
+            LabelSourceCode.Text = "Source Code: " & System.IO.Path.GetFileNameWithoutExtension(OpenFileDialog.FileName)
+        End If
+    End Sub
 End Class
