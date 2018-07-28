@@ -100,6 +100,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property icon_logo__256_256_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("icon logo (256_256)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to {I.S : user memasukan berapa lama proyek dikerjakan dalam hari}
         '''{F.S : menampilkan berapa tahun, bulan, dan hari proyek dikerjakan}
         '''
@@ -126,19 +136,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to -
-        '''*
-        '''/
-        ''':=
-        '''+
-        '''+
-        '''&lt;
-        '''&lt;=
-        '''&lt;&gt;
-        '''=
-        '''&gt;
-        '''&gt;=
-        '''abs
+        '''  Looks up a localized string similar to abs
         '''and
         '''arctan
         '''array
@@ -167,6 +165,7 @@ Namespace My.Resources
         '''eof
         '''eoln
         '''exp
+        '''export
         '''false
         '''file
         '''for
@@ -177,12 +176,14 @@ Namespace My.Resources
         '''if
         '''implementation
         '''in
+        '''inherited
         '''inline
         '''input
         '''integer
         '''interface
         '''label
         '''length
+        '''library
         '''ln
         '''maxint
         '''mod
@@ -207,7 +208,8 @@ Namespace My.Resources
         '''random
         '''read
         '''readln
-        ''' [rest of string was truncated]&quot;;.
+        '''real
+        '''record [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property keywords_pascal() As String
             Get

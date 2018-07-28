@@ -3,6 +3,7 @@
     Dim SourceCode As String
 
     Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        SplashScreenForm.Show()
         TimerLoader.Enabled = True
         ComboBoxLanguage.SelectedIndex = 0
         ComboBoxTestCase.SelectedIndex = 0

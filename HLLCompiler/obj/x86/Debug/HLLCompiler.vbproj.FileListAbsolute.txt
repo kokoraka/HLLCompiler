@@ -22,3 +22,4 @@ D:\projects\vs\HLLCompiler\HLLCompiler\bin\Debug\HLLCompiler.exe.manifest
 D:\projects\vs\HLLCompiler\HLLCompiler\bin\Debug\HLLCompiler.application
 D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Debug\HLLCompiler.exe.manifest
 D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Debug\HLLCompiler.application
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Debug\HLLCompiler.SplashScreenForm.resources
