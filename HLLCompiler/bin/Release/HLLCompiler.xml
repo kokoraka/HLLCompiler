@@ -49,6 +49,10 @@ var
 
    [rest of string was truncated]";.
 </summary>
+</member><member name="P:HLLCompiler.My.Resources.Resources.icon_logo__256_256_">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:HLLCompiler.My.Resources.Resources.jumlah_tahun_bulan_hari">
 	<summary>
   Looks up a localized string similar to {I.S : user memasukan berapa lama proyek dikerjakan dalam hari}
@@ -72,19 +76,7 @@ begin
 </summary>
 </member><member name="P:HLLCompiler.My.Resources.Resources.keywords_pascal">
 	<summary>
-  Looks up a localized string similar to -
-*
-/
-:=
-+
-+
-&lt;
-&lt;=
-&lt;&gt;
-=
-&gt;
-&gt;=
-abs
+  Looks up a localized string similar to abs
 and
 arctan
 array
@@ -113,6 +105,7 @@ end
 eof
 eoln
 exp
+export
 false
 file
 for
@@ -123,12 +116,14 @@ gotoxy
 if
 implementation
 in
+inherited
 inline
 input
 integer
 interface
 label
 length
+library
 ln
 maxint
 mod
@@ -153,7 +148,8 @@ put
 random
 read
 readln
- [rest of string was truncated]";.
+real
+record [rest of string was truncated]";.
 </summary>
 </member><member name="P:HLLCompiler.My.Resources.Resources.menukar_variabel_xyz">
 	<summary>

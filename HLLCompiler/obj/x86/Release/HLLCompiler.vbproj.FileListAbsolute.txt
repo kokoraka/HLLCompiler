@@ -12,3 +12,4 @@ D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.application
 D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.exe
 D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.xml
 D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.pdb
+D:\projects\vs\HLLCompiler\HLLCompiler\obj\x86\Release\HLLCompiler.SplashScreenForm.resources
